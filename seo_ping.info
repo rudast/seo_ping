@@ -1,0 +1,5 @@
+name = SEO Ping
+description = Allows ping services
+package = SEO
+core = 7.x
+dependencies[] = trigger
