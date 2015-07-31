@@ -91,9 +91,9 @@ function seo_ping_node_ping_form($context) {
     '#default_value' => isset($context['ping_types']) ? $context['ping_types'] : '',
   );
   $form['title_name'] = array(
-    '#title' => t('Field title name'),
+    '#title' => t('Title'),
     '#type' => 'textfield',
-    '#description' => t('Field title name'),
+    '#description' => t('Title field label'),
     '#default_value' => isset($context['title_name']) ? $context['title_name'] : '',
     '#states' => array(
       'visible' => array(
@@ -105,9 +105,9 @@ function seo_ping_node_ping_form($context) {
     ),
   );
   $form['url_name'] = array(
-    '#title' => t('Field url name'),
+    '#title' => t('URL'),
     '#type' => 'textfield',
-    '#description' => t('Field url name'),
+    '#description' => t('URL field label'),
     '#default_value' => isset($context['url_name']) ? $context['url_name'] : '',
     '#states' => array(
       'visible' => array(
@@ -119,16 +119,44 @@ function seo_ping_node_ping_form($context) {
     ),
   );
   $form['category_name'] = array(
-    '#title' => t('Field url name'),
+    '#title' => t('Category'),
     '#type' => 'textfield',
-    '#description' => t('Field url name'),
-    '#default_value' => isset($context['url_name']) ? $context['url_name'] : '',
+    '#description' => t('Category field label'),
+    '#default_value' => isset($context['category_name']) ? $context['category_name'] : '',
     '#states' => array(
       'visible' => array(
-        ':input[name="ping_types[Url Address]"]' => array('checked' => TRUE),
+        ':input[name="ping_types[Category]"]' => array('checked' => TRUE),
       ),
       'required' => array(
-        ':input[name="ping_types[Url Address]"]' => array('checked' => TRUE),
+        ':input[name="ping_types[Category]"]' => array('checked' => TRUE),
+      ),
+    ),
+  );
+  $form['sitemap_name'] = array(
+    '#title' => t('Sitemap'),
+    '#type' => 'textfield',
+    '#description' => t('Sitemap field label'),
+    '#default_value' => isset($context['sitemap_name']) ? $context['sitemap_name'] : '',
+    '#states' => array(
+      'visible' => array(
+        ':input[name="ping_types[Sitemap]"]' => array('checked' => TRUE),
+      ),
+      'required' => array(
+        ':input[name="ping_types[Sitemap]"]' => array('checked' => TRUE),
+      ),
+    ),
+  );
+  $form['author_name'] = array(
+    '#title' => t('Author'),
+    '#type' => 'textfield',
+    '#description' => t('Author\'s field label'),
+    '#default_value' => isset($context['author_name']) ? $context['author_name'] : '',
+    '#states' => array(
+      'visible' => array(
+        ':input[name="ping_types[Author]"]' => array('checked' => TRUE),
+      ),
+      'required' => array(
+        ':input[name="ping_types[Author]"]' => array('checked' => TRUE),
       ),
     ),
   );
@@ -159,7 +187,8 @@ function seo_ping_node_ping_submit($form, $form_state) {
   return array(
   'node_type' => $form_state['values']['node_type'],
   'ping_service' => $form_state['values']['ping_service'],
-  'ping_port'=>$form_state['values']['ping_port']
+  'ping_port'=>$form_state['values']['ping_port'],
+  'ping_types' => $form_state['values']['ping_types'],
   );
 }
 
