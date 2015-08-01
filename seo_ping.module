@@ -161,7 +161,6 @@ function seo_ping_node_ping($node, $context) {
     $call = xmlrpc($context['ping_service'] . ':' . $context['ping_port'], array(
       $context['ping_method'] => $parameters
     ));
-    debug($call);
     
     if ($call['flerror'] != 'false') {
       drupal_set_message(t('@node successfully sent to @service', array(
