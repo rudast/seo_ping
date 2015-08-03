@@ -1,6 +1,6 @@
 INTRODUCTION
 ------------
-The SEO Ping module allows the user to use ping services like pingomatic.
+The SEO Ping module allows the user to use pingback services like pingomatic.
 It adds a configurable action so the user can choose what kind of nodes
 and which parameters to send at the service. It uses XMLRPC client to
 archive that.
